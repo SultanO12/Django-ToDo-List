@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Add Task{% endblock title %}
+
+{% block content %}
+<style>
+    .gradient-custom-2 {
+      /* fallback for old browsers */
+      background: #7e40f6;
+    
+      /* Chrome 10-25, Safari 5.1-6 */
+      background: -webkit-linear-gradient(
+        to right,
+        rgba(126, 64, 246, 1),
+        rgba(80, 139, 252, 1)
+      );
+    
+      /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      background: linear-gradient(
+        to right,
+        rgba(126, 64, 246, 1),
+        rgba(80, 139, 252, 1)
+      );
+    }.icon {
+      color: white;
+      margin-right: 10px;
+    }
+    
+    
+    .mask-custom {
+      background: rgba(24, 24, 16, 0.2);
+      border-radius: 2em;
+      backdrop-filter: blur(25px);
+      border: 2px solid rgba(255, 255, 255, 0.05);
+      background-clip: padding-box;
+      box-shadow: 10px 10px 10px rgba(46, 54, 68, 0.03);
+    }
+    
+    </style>
+<section class="gradient-custom-2">
+    <div class="container py-5 h-30">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-6 col-xl-10">
+  
+          <div class="card mask-custom">
+            <div class="card-body p-4 text-white">
+  
+              <div class="text-center pt-3 pb-2">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-todo-list/check1.webp"
+                  alt="Check" width="60">
+                <h2 class="my-4">Add Task</h2>
+              </div>
+              <div class="row">
+                <div class="col-md-6 offset-3">
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            {{ form|crispy }}
+                        </div>
+                        <button type="submit" class="btn btn-success">Save</button>
+                    </form>
+                </div>
+            </div>
+            
+              
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</section>
+{% endblock content %}
